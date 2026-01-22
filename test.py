@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
 # 1. 데이터 로드 및 전처리
-file_path = 'korea_person.csv'
+file_path = 'dir/korea_person.csv'
 df = pd.read_csv(file_path)
 if 'Unnamed: 2' in df.columns:
     df = df.rename(columns={'Unnamed: 2': 'Population'})
@@ -78,6 +78,9 @@ predicted_cwrs[target_years_cwr[0][0]] = pred_cwr[0]  # 2030년 CWR
 predicted_cwrs[target_years_cwr[1][0]] = pred_cwr[1]  # 2035년 CWR
 
 print(f"예측된 미래 출산비율: 2030년({pred_cwr[0]:.4f}) -> 2035년({pred_cwr[1]:.4f})")
+
+print(predicted_ccrs)
+print(predicted_cwrs )
 
 # (2) CCR 예측 (선형 회귀)
 ccr_cols = [c for c in df_ccr_ts.columns if 'CCR' in c]
